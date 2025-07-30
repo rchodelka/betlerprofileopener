@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>URL Opener</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      text-align: center;
+      padding: 50px;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #FD0104;
+      font-weight: 550;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+
+    input[type="text"] {
+      width: 300px;
+      padding: 12px 20px;
+      margin: 10px 0;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    input[type="text"]:focus {
+      border-color: #FD0104;
+      outline: none;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1em;
+      color: white;
+      background-color: #FD0104;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #E80104;
+    }
+     .page-header {
+    background-color: #FD0104;
+    color: white;
+    padding: 20px;
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  </style>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <div style="background-color: #FD0104; color: white; padding: 20px; font-size: 1.5em; font-weight: normal; text-align: left;">
+    Betler player's profile opener
+  </div>
+  <h1>Open a customer profile in Betler</h1>
+  <p>Please enter the Betler user ID and click on "Open profile" button or press Enter:</p>
+  <input type="text" id="inputText" placeholder="e.g. c34d071d-eb62-41fa-a4e8-411ac8007057" />
+  <button onclick="openURL()">Open profile</button>
+
+  <script>
+    const input = document.getElementById("inputText");
+
+    function openMultipleURLs() {
+      const userInput = input.value.trim();
+      if (userInput) {
+        const baseUrl = "https://bacoff.services.production.betler.superbet.com/customer/"; // Replace with your actual base URL
+        const values = userInput.split(",").map(val => val.trim()).filter(val => val !== "");
+
+        if (values.length === 0) {
+          alert("Please enter at least one valid value.");
+          return;
+        }
+
+        values.forEach(value => {
+          const fullUrl = baseUrl + encodeURIComponent(value);
+          window.open(fullUrl, "_blank");
+        });
+      } else {
+        alert("Please enter user ID.");
+      }
+    }
+
+    // Listen for Enter key
+    input.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        openMultipleURLs();
+      }
+    });
+  </script>
+</body>
+</html>
