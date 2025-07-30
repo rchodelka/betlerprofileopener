@@ -24,34 +24,39 @@
     }
 
     input[type="text"] {
-      width: 100%;
-      max-width: 600px;
-      padding: 12px 20px;
-      margin: 10px 0;
-      border: 2px solid #ccc;
-      border-radius: 8px;
-      font-size: 1em;
-    }
+  width: 100%;
+  max-width: 600px;
+  padding: 12px 20px;
+  margin: 10px 0;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s;
+}
 
     input[type="text"]:focus {
-      border-color: #FD0104;
-      outline: none;
-    }
+  border-color: #FD0104;
+  outline: none;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
 
     button {
-      padding: 12px 25px;
-      font-size: 1em;
-      color: white;
-      background-color: #FD0104;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
+  padding: 12px 25px;
+  font-size: 1em;
+  color: white;
+  background-color: #FD0104;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
 
     button:hover {
-      background-color: #E80104;
-    }
+  background-color: #E80104;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
      .page-header {
     background-color: #FD0104;
     color: white;
